@@ -1,0 +1,53 @@
+.about-box{
+    //height: 40rem;
+    width: 29rem;
+    padding: 2rem;
+    border-radius: 3px;
+    box-shadow: 0 2rem 4rem rgba($color-black,0.6);
+    position: relative;
+    text-align: center;
+    transition: all .3s;
+    margin: 1rem;
+
+    &__icon{
+        display:inline-block;
+        font-size: 6rem;
+        margin-bottom: 0.5rem;
+        //background-image: linear-gradient(to right bottom,rgba($color-grey-light,0.8),rgba($color-grey-dark,0.8));
+        background-image: linear-gradient(to right bottom,$color-grey,$color-grey-dark);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    &__text{
+        font-size: $default-font-size;
+    }
+
+    &__img{
+        //height: 25rem;
+        display:inline-block;
+        width: 85%;
+        position: absolute;
+        top:-30%;
+        right:-50%;
+        z-index:-10;
+    }
+
+    &--green{
+        background-image: linear-gradient(to right bottom, $color-green-light, $color-green , $color-green-dark);
+
+    }
+    &--orange{
+        background-image: linear-gradient(to right bottom, $color-orange-light, $color-orange , $color-orange-dark);
+
+    }
+    &--blue{
+        background-image: linear-gradient(to right bottom, $color-blue-light, $color-blue , $color-blue-dark);
+    }
+
+    &:hover{
+        box-shadow: 0 2rem 5rem rgba($color-black,0.6);
+        transform: translateY(-3rem) scale(1.1);
+    }
+}

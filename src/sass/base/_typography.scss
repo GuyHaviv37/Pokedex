@@ -1,0 +1,86 @@
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color : $color-grey-dark;
+}
+
+.heading-primary{
+    color : $color-grey-light;
+    text-transform: uppercase;
+    margin-bottom : 6rem;
+
+    backface-visibility: hidden; /* Fix for shaking text ??*/
+
+    &--main{
+        display: block;
+        font-size : 6rem;
+        font-weight: 400;
+        letter-spacing: 2rem;
+    
+        animation: moveInLeft 1s ease-out;
+
+        @include respond(phone){
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
+    }
+    &--sub{
+        display: block;
+        font-size : 2rem;
+        font-weight: 700;
+        letter-spacing: 1.7rem;
+    
+        animation: moveInRight 1s ease-out;
+
+        @include respond(phone){
+            letter-spacing: .5rem;
+        }
+    }
+}
+
+.heading-secondary{
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom : 1rem;
+    letter-spacing: 1.2rem;
+    background-image: linear-gradient(to right, $color-basic-light, $color-basic-dark);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    @include respond(tablet-ls){
+        font-size:4.2rem;
+        letter-spacing: 0.8rem;
+    }
+    @include respond(phone){
+        letter-spacing: .5rem;
+    }
+
+}
+.heading-sub{
+    font-size:1.8rem;
+    text-transform: uppercase;
+
+    @include respond(tablet-port){
+        font-size: 1.5rem;
+    }
+
+    @include respond(phone){
+        font-size: 1.3rem;
+    }
+}
+
+.heading-tertiary{
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.paragraph{
+    font-size: 2rem;
+    
+    &:not(last-child){
+        margin-bottom: 3rem;
+    }
+}

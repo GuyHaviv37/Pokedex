@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script> 
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/icon-font.css">
+    <link rel="stylesheet" href="./css/style.css"> 
+    <!-- <script src="../src/Trie.js"></script>
+    <script src="../src/pokemonTypes.js"></script> -->
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+    <title>Pokédex</title>
+
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo-box">
+            <img src="./img/poke-logo-light.png" alt="Pokeball logo" class="header__logo">
+        </div>
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">Welcome Traveler!</span>
+                <span class="heading-primary--sub">Explore the world of Pokémon</span>
+            </h1>
+            <a href="#section-search" class="btn-primary">Get Started &rarr;</a>
+        </div>
+    </header>
+    <!-- <div class="filler"></div> -->
+    <main>
+        <section class="section-about">
+            <!-- GRID 3 COLUMNS -->
+            <!-- HOW TO USE & SUCH -->
+            <div class="row-flex row-flex--even">
+                <div class="about-box about-box--green">
+                    <i class="about-box__icon icon-weather-aquarius"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small">evolve !</h3>
+                    <p class="about-box__text">Get all the evolution information you need of your pokémon including how and when it evolves.</p>
+                    <!-- <img src="/img/poke-1.png" alt="balbasaur" class="about-box__img"> -->
+                </div>
+                <div class="about-box about-box--orange">
+                    <i class="about-box__icon icon-weather-sun"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small">every pokémon</h3>
+                    <p class="about-box__text">Find every pokémon out there - with all the details you need to "Catch 'em All" !</p>
+                    <!-- <img src="/img/poke-2.png" alt="balbasaur" class="about-box__img"> -->
+                </div>
+                <div class="about-box about-box--blue">
+                    <i class="about-box__icon icon-weather-drop"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small">all moves</h3>
+                    <p class="about-box__text">Learn about moves available to your pokémon, the best way become the best trainer.</p>
+                    <!-- <img src="/img/poke-3.png" alt="balbasaur" class="about-box__img"> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-search" id="section-search">
+            <div class="row-flex row-flex--even">
+                <div class="search-box">
+                    <h2 class="heading-secondary heading-secondary--text-clip center-text">Pokémon</h2>
+                    <!-- <label for="category-select" class="search-box__label">Pokémon</label> -->
+                    <!-- <select name="category-select" id="category-select" class="search-box__select">
+                        <option value="pokemon" class="search-box__option">Pokémon</option>
+                        <option value="items" class="search-box__option">Items</option>
+                        <option value="berries" class="search-box__option">Berries</option>
+                        <option value="moves" class="search-box__option">Moves</option>
+                    </select> -->
+                    <div class="search-box__input-box">
+                        <input type="text" placeholder="Search by name or id..." class="search-box__input">
+                        <button class="search-box__clear-btn">x</button>
+                        <ul class="dropdown-menu dropdown-menu--is-active">
+                            <!-- <li class="search-box__dropdown-item"><a href="#">Poke1</a></li>
+                            <li class="search-box__dropdown-item"><a href="#">Poke1</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-results">
+            <!-- Top Searchs (before typing) -->
+            <div class="spinner is-hidden"></div>                
+            <div class="row-flex row-flex--even">
+                <div class="poke-box is-hidden">
+                    <!-- top / is-hidden -->
+                    <!-- <article class="poke-box__dashboard">
+                        <div class="poke-box__img-box">
+                            <img src="https://pokeres.bastionbot.org/images/pokemon/1.png" alt="pokemon Image">
+                        </div>
+                        <div class="poke-box__header">
+                            <h2 class="heading-secondary">bulbasaur</h2>
+                            <h4 class="heading-sub">Types : Grass, Poison </h4>
+                            <h4 class="heading-sub">First Apperance : Generation I</h4>
+                            
+                        </div>
+                        <div class="poke-box__base-stats">
+                            <h3 class="heading-tertiary u-margin-bottom-small">Base Stats:</h3>
+                            <ul>
+                                <li>HP: 45</li>
+                                <li>Attack: 49</li>
+                                <li>Defense: 49</li>
+                                <li>Special Attack: 65</li>
+                                <li>Special Defense: 65</li>
+                                <li>Speed: 45</li>
+                                <li>Height: 7</li>
+                                <li>Weight: 69</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <div class="poke-box__evo-box">
+                        <h3 class="heading-tertiary">Evolutions:</h3>
+                        <div class="poke-box__evo-list">
+                            <article class="evo-card">
+                                <header class="evo-card__evo-header">
+                                    <p class="evo-id">#2</p>
+                                    <h3 class="evo-card__evo-title">Ivysaur</h3>
+                                </header>
+                                <div class="evo-card__img-box">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="pokemon Image">
+                                </div>
+                            </article>
+                            <article class="evo-card">
+                                <header class="evo-card__evo-header">
+                                    <p class="evo-id">#3</p>
+                                    <h3 class="evo-card__evo-title">VENUSAUR</h3>
+                                </header>
+                                <div class="evo-card__img-box">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="pokemon Image">
+                                </div>
+                            </article>
+                            <article class="evo-card">
+                                <header class="evo-card__evo-header">
+                                    <p class="evo-id">#3</p>
+                                    <h3 class="evo-card__evo-title">VENUSAUR</h3>
+                                </header>
+                                <div class="evo-card__img-box">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="pokemon Image">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="poke-box__moves-box">
+                        <h3 class="heading-tertiary u-margin-bottom-medium">Moves:</h3>
+                        <ul class="poke-box__moves-list">
+                            <li class="poke-box__moves-item"><a href="#">Move1</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move2</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move3</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move4</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move5</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move6</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move7</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move8</a></li>
+                            <li class="poke-box__moves-item"><a href="#">Move9</a></li>
+                        </ul>
+                    </div>
+                     -->
+                    <!-- bottom -->
+                </div>
+            </div>
+        </section>
+        <!-- <div class="TCG-box">
+            <button id="tcgBtn">CLICK ME</button>
+        </div> -->
+    </main>
+
+    
+
+    
+    <footer class="footer" id="footer">
+        <div class="footer__logo-box">
+            <img src="./img/poke-logo-light.png" alt="Logo" class="footer__logo">
+        </div>
+        <div class="row-flex row-flex--even">
+            <div class="footer__nav">
+                <ul class="footer__list">
+                    <!-- This will open the pop-up form -->
+                    <li class="footer__item"><a href="#popup-1" class="footer__link">Contact Us</a></li>
+                    <!-- This  -->
+                    <li class="footer__item"><a href="#popup-2" class="footer__link ">Resources</a></li>
+                    <!-- This will send to github -->
+                    <li class="footer__item"><a href="#footer" class="footer__link">Learn More</a></li>
+                </ul>
+            </div>
+            <div class="footer__copyright">
+                This site was created by &copy; 
+                <span class="footer__tooltip" data-text="Feel free to contact me for further info!">Guy Haviv</span>.
+                Any use of the information in this site is free and available to all.
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup" id="popup-1">
+        <div class="popup__content">
+            <div class="popup__left">
+                <img src="./img/dragonite.png" alt="pokemon-gen-i-starters">
+            </div>
+            <div class="popup__right">
+                <a href="#footer" class="popup__close">&times;</a>
+                <h3 class="heading-secondary center-text">Contact Us</h3>
+                <div class="popup__form">
+                    <form action="https://usebasin.com/f/27a59a485e62" method="POST">
+                        <label class="popup__label" for="contact-name">Your name:</label>
+                        <input class="popup__input-text" id="contact-name" name="name" type="text" required>
+                        <label class="popup__label" for="contact-email">Your email:</label>
+                        <input class="popup__input-text popup__input-text--email" id="contact-email" name="email" type="email" required>
+                        <label class="popup__label" for="contact-freeText">Share your thoughts!</label>
+                        <textarea class="popup__input-text-area" name="freeText" id="contact-freeText" cols="50" rows="10" required></textarea>
+                        <button class="popup__submit" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-2">
+        <div class="popup__content">
+            <div class="popup__left">
+                <img src="./img/butterfree.png" alt="pokemon-gen-i-starters">
+            </div>
+            <div class="popup__right">
+                <a href="#footer" class="popup__close">&times;</a>
+                <h3 class="heading-secondary center-text">Resources</h3>
+                <ul class="popup__list">
+                    <li class="popup__list-item">
+                        <a href="https://pokeapi.co/" class="popup__link">Poké API</a>- Pokémon information for pokémon #1-#893
+                    </li>
+                    <li class="popup__list-item">
+                        <a href="https://pokeres.bastionbot.org/" class="popup__link">Bastion.org</a> - Pokémon images for pokémon #1-#887 , #890
+                    </li>
+                    <li class="popup__list-item">
+                        <a href="https://docs.pokemontcg.io/" class="popup__link">Pokémon TCG</a> (To be added) - Trading Card Game information
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../dist/main.js"></script>
+</body>
+</html>

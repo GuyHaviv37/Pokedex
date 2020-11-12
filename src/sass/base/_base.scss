@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before{
+    margin : 0;
+    padding : 0;
+    box-sizing: inherit;
+}
+
+html{
+    /* basic root font size (for 1rem=10px) based on 16px defualt on browser*/
+    /* Remember - bigger matches come FIRST , bigger then my default can come last, at same order (biggest to smaller)*/
+    font-size : 62.5%; 
+
+    @include respond(tablet-ls) {
+        font-size: 56.25%; //1rem = 9px , 9/16
+    }
+    @include respond(tablet-port) { // this will work also for phone size
+        font-size: 50%;  // 1rem = 8px , 8/16
+    }
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12px , 12/16
+    }
+    
+    scroll-behavior:smooth;
+}
+
+body{
+    box-sizing: border-box; /* whether border and padding are calculated as part of height and width*/
+    
+    padding: 3rem;
+
+    @include respond(tablet-port){
+        padding : 0;
+    }
+}
+

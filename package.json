@@ -1,0 +1,30 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex Web App",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass ./src/sass/main.scss ./public/css/style.css -w",
+    "build:sass": "node-sass ./src/sass/main.scss ./public/css/style.css",
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+  "author": "Guy Haviv",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "pokemontcgsdk": "^1.1.0"
+  },
+  "devDependencies": {
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.2.0",
+    "node-sass": "^5.0.0",
+    "resolve-url-loader": "^3.1.2",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

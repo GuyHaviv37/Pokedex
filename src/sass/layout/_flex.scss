@@ -1,0 +1,26 @@
+.row-flex{
+    max-width: $grid-width;
+    margin: 0 auto;
+    display:flex;
+    //flex-wrap: wrap;
+    
+    &--even{
+        justify-content: space-evenly;
+    }
+    &--between{
+        justify-content: space-between;
+    }
+    
+    @include respond(tablet-port){
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    @include respond(phone){
+        flex-direction: column;
+        & div:not(:last-child){
+            margin-bottom: $gutter-horizontal-small;
+        }
+    }
+
+}

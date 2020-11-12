@@ -1,0 +1,125 @@
+.footer{
+    padding: 8rem 0 3rem 0;
+    background-color: $color-grey-dark;
+    font-size: 1.6rem;
+    color: $color-grey-light;
+
+    &__logo-box{
+        text-align:center;
+        margin-bottom: 4rem;
+    }
+
+    &__logo{
+        width: 15rem;
+    }
+
+    &__content{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__nav{
+        display: inline-block;
+        border-top: 1px solid $color-grey;
+        padding-top: 2rem;
+        text-align: center;
+
+        @include respond(phone){
+            width: $footer-nav-phone;
+        }
+    } 
+
+    &__list{
+        list-style: none;
+    }
+
+    &__item{
+        display: inline-block;
+
+        &:not(:last-child){
+            margin-right: 1.5rem;
+        }
+    }
+
+
+
+    &__link{
+        &:link,&:visited{
+            display: inline-block;
+            color: $color-grey-light;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition : all .2s;
+            background-color: $color-grey-dark;
+        }
+
+        &:hover,&:active{
+            color: $color-yellow;
+            box-shadow: 0 1rem 2rem rgba($color-black,.4);
+            transform: scale(1.15) rotate(-5deg);
+        }
+    }
+
+    &__tooltip{
+        position: relative;
+
+        &:before{
+            content:attr(data-text);
+            // Position before element
+            position: absolute;
+            top:0;
+            left:50%;
+            transform: scale(1) rotate(5deg) translate(-50%,-100%);
+
+            /* basic styles */
+            width:20rem;
+            padding:5px;
+            border-radius:5px;
+            background:$color-grey-dark-2;
+            color: $color-grey-light;
+            text-align:center;
+            font-size:1.4rem;
+            box-shadow: 0 1rem 2rem rgba($color-black,.4);
+
+            
+            /* hide by default */
+            opacity:0;
+            visibility: hidden;
+            
+            transition: opacity .3s;
+        }
+
+        &:after{
+            content: "";
+            position:absolute;
+            
+            /* position tooltip correctly */
+            top:0;
+            left:50%;
+            transform: scale(1) rotate(5deg) translate(-50%,-50%);
+           
+            /* the arrow */
+            border:10px solid $color-grey-dark-2;
+            border-color: $color-grey-dark-2 transparent transparent transparent;
+            box-shadow: 0 1rem 2rem rgba($color-black,.4);
+            opacity:0;
+            visibility: hidden;
+            transition: opacity .3s;
+        }
+        &:hover:before,&:hover:after{
+            opacity:1;
+            visibility: visible; 
+        }
+    }
+
+    &__copyright{
+        width: 30%;
+        border-top: 1px solid $color-grey;
+        padding-top: 2rem;
+
+        @include respond(phone){
+            width: $footer-nav-phone;
+        }
+    }
+
+}

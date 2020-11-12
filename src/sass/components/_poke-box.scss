@@ -1,0 +1,167 @@
+.poke-box{
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 2rem 4rem rgba($color-black,0.6);
+    background-image: linear-gradient(to bottom right, rgba(#9a8c98,1), rgba(#4a4e69,1));
+    color: $color-grey-light;
+    padding: 5rem;
+    display:grid;
+    position: relative;
+    grid-template-areas:
+    "dashboard"
+    "extras";
+
+    @include respond(tablet-port){
+        width:100%;
+    }
+    @include respond(phone){
+        padding: 1rem;
+    }
+
+    & h3{
+        display:inline-block;
+        border-bottom: 1px solid $color-grey-light;
+    }
+
+    &__dashboard{
+        width:100%;
+        grid-area: dashboard;
+        display: grid;
+        grid-template-areas: 
+        "pic header header"
+        "pic base-stats base-stats"
+        "pic base-stats base-stats"
+        ;
+        margin-bottom: 3rem;
+
+        @include respond(tablet-port){
+            grid-template-areas: 
+            "header"
+            "pic"
+            "base-stats"
+            ;
+            justify-items: center;
+        }
+    }
+    &__img-box{
+        grid-area: pic;
+        width: 30rem;
+        height: 30rem;
+
+        & img{
+            width: 100%;
+            animation: fadeIn .5s ease-out;
+        }
+
+        @include respond(tablet-ls){
+            width: 25rem;
+            height: 25rem;
+        }
+
+        @include respond(phone){
+            width: 15rem;
+            height: 15rem;
+        }
+    }
+
+    &__id-show{
+        letter-spacing: unset;
+    }
+    &__header{
+        grid-area: header;
+        margin-bottom: 2rem;
+    }
+
+
+
+    &__base-stats{
+        grid-area: base-stats;
+        text-align: center;
+        padding: 1rem;
+
+        ul {
+            column-count: 2;
+            column-gap: 2rem;
+            list-style: none;
+        }
+
+        li{
+            font-size: 1.6rem;
+
+            @include respond(phone){
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    &__extras{
+        grid-area: extras;
+        width:100%;
+        display:grid;
+        grid-template-areas: "evo-box moves-box";
+
+        @include respond(tablet-port){ 
+            grid-template-areas: 
+            "evo-box" 
+            "moves-box";
+            justify-content: center;
+        }
+    }
+
+    &__evo-box{
+        grid-area: evo-box;
+        text-align: center;
+        max-width:30vw;
+        @include respond(tablet-port){ 
+            max-width: 70vw;
+        }
+    }
+
+    &__evo-list{
+        display: flex;
+        padding: 3rem;
+        overflow-x: auto;
+        @include scrollbarConfig(1rem);
+
+        @include respond(tablet-ls){
+            padding: 2rem;
+        }
+    }
+
+    &__moves-box{
+        grid-area: moves-box;
+        text-align: center;
+        padding : 5px;
+
+        @include respond(phone){
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+    
+    &__moves-list{
+        list-style: none;
+        font-size: 1.6rem;
+        max-height: 25rem;
+        overflow-y: auto;
+        border-radius: 5px;
+        @include scrollbarConfig(1rem);
+
+
+    }
+
+    &__moves-item{
+        width: 100%;
+        background-color: $color-grey-dark;
+        color:inherit;
+        text-decoration: none;
+        min-width: 20ch;
+        &:not(:last-child){
+            border-bottom:1px solid $color-grey-light;
+        }
+
+        @include respond(phone){
+            overflow-wrap: break-word;
+        }
+    }
+}

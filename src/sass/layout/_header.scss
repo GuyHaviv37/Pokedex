@@ -1,0 +1,39 @@
+.header{
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba($color-grey,0.8) 0%, rgba($color-grey,0.8) 30%, rgba($color-grey-dark,0.8) 100%),url('../../../public/img/poke-pickachu-transparent.png');
+    background-size: fill;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 49% 100%, 49% 100%, 0 60%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 60%, 49% 100%, 49% 100%, 0 60%);
+
+    &__logo-box{
+        position: absolute;
+        top : 2.5rem;
+        left: 2.5rem;
+
+        @include respond(phone){
+            display: none;
+        }
+    }
+
+    &__logo{
+        height: 10rem;
+        &:hover{
+            animation: squigle 1s;
+        }
+    }
+
+    &__text-box{
+        width: 80%;
+        position: absolute;
+        top: 40%;
+        left : 50%;
+        /* Shift box s.t the absoulte positioning is from the center of the box element*/
+        transform: translate(-50%,-50%);
+        text-align: center
+    }
+
+}

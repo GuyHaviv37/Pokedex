@@ -1,0 +1,30 @@
+.btn-primary{
+    display:inline-block;
+    &:link,&:visited{
+        text-decoration:none;
+        color: $color-yellow;
+        border-bottom: 2px solid $color-yellow;
+        font-size: 3rem;
+        font-weight: 700;
+        padding: 1rem;
+        background-image: linear-gradient(115deg, transparent 0%, transparent 50%, $color-yellow 50% , $color-yellow 100%);
+        background-size: 240%;
+        animation: moveInBottom 1s;
+        transition: all .6s;
+
+        @include respond(tablet-port){
+            font-size: 2.5rem;
+        }
+    }
+
+    &:hover{
+        background-position: 100%;
+        color: $color-grey-dark;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.4); 
+    }
+
+    &:active{
+        transform:translateY(.5rem);
+        box-shadow: 0 .5 .5rem rgba(0,0,0,.2);
+    }
+}

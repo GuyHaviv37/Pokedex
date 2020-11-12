@@ -1,0 +1,31 @@
+
+.section-about{
+    width: 100%;
+    padding-bottom: 20rem;
+    padding-top: 50rem;
+    margin-top: -40vh;
+    background-image: linear-gradient(to bottom, rgba($color-grey-light,0.8), rgba($color-grey-dark,0.8));
+
+    @include respond(tablet-port){
+        padding-bottom: 10rem;
+    }
+}
+
+.section-search{
+    background-color: $color-grey-dark;
+    padding: 5rem;
+
+    @include respond(phone){
+        padding: 3rem;
+    }
+}
+
+.section-results{
+    padding: 10rem 5rem;
+    background-image: linear-gradient(to bottom right, $color-basic-light, $color-basic, $color-basic-dark);
+    position: relative;
+
+    @include respond(phone){
+        padding: 8rem 3rem;
+    }
+}
