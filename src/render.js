@@ -67,7 +67,7 @@ const createArticle = (parsedData)=>{
 const createImage = (id)=>{
     const imageBox = document.createElement('div');
     imageBox.classList.add('poke-box__img-box');
-    imageBox.innerHTML = `<img src="https://pokeres.bastionbot.org/images/pokemon/${id}.png" alt="pokemon Image~!"
+    imageBox.innerHTML = `<img src="https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${id}.svg" alt="pokemon Image~!"
     onError="this.onerror=null;src='${DEFAULT_POKEMON_IMAGE}';">`
     return imageBox;
 }
